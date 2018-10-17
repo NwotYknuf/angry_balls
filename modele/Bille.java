@@ -111,12 +111,12 @@ public abstract class Bille {
     }
 
     /**
-     * calcul (c-�-d mise � jour) �ventuel du vecteur acc�l�ration. billes est la
-     * liste de toutes les billes en mouvement Cette m�thode peut avoir besoin de
+     * calcul (c-à-d mise à jour) éventuel du vecteur accélération. billes est la
+     * liste de toutes les billes en mouvement Cette méthode peut avoir besoin de
      * "billes" si this subit l'attraction gravitationnelle des autres billes La
-     * nature du calcul du vecteur acc�l�ration de la bille est d�finie dans les
-     * classes d�riv�es A ce niveau le vecteur acc�l�ration est mis � z�ro (c'est �
-     * dire pas d'acc�l�ration)
+     * nature du calcul du vecteur accélération de la bille est définie dans les
+     * classes dérivées A ce niveau le vecteur accélération est mis à zéro (c'est à
+     * dire pas d'accélération)
      */
     public void gestionAcceleration(Vector<Bille> billes) {
         this.getAcceleration().set(Vecteur.VECTEURNUL);

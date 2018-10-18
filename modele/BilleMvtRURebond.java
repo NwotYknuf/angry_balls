@@ -14,7 +14,7 @@ import angry_balls.mesmaths.geometrie.base.Vecteur;
  * A MODIFIER
  * 
  */
-public class BilleMvtRURebond extends Bille {
+public class BilleMvtRURebond extends BilleMaladroit {
 
         public BilleMvtRURebond(Vecteur centre, double rayon, Vecteur vitesse, Color couleur) {
                 super(centre, rayon, vitesse, couleur);

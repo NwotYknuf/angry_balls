@@ -16,7 +16,7 @@ import angry_balls.mesmaths.mecanique.MecaniquePoint;
  * 
  */
 
-public class BilleMvtNewtonArret extends Bille {
+public class BilleMvtNewtonArret extends BilleMaladroit {
 
         public BilleMvtNewtonArret(Vecteur position, double rayon, Vecteur vitesse, Color couleur) {
                 super(position, rayon, vitesse, couleur);

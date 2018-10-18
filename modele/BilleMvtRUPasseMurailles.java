@@ -15,7 +15,7 @@ import angry_balls.mesmaths.geometrie.base.Vecteur;
  * 
  */
 
-public class BilleMvtRUPasseMurailles extends Bille {
+public class BilleMvtRUPasseMurailles extends BilleMaladroit {
 
         /**
          * @param centre

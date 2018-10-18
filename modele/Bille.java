@@ -118,9 +118,7 @@ public abstract class Bille {
      * classes dérivées A ce niveau le vecteur accélération est mis à zéro (c'est à
      * dire pas d'accélération)
      */
-    public void gestionAcceleration(Vector<Bille> billes) {
-        this.getAcceleration().set(Vecteur.VECTEURNUL);
-    }
+    public abstract void gestionAcceleration(Vector<Bille> billes);
 
     /**
      * gestion de l'�ventuelle collision de cette bille avec les autres billes

@@ -18,7 +18,7 @@ import angry_balls.mesmaths.mecanique.MecaniquePoint;
  * A MODIFIER
  * 
  */
-public class BilleMvtPesanteurFrottementRebond extends Bille {
+public class BilleMvtPesanteurFrottementRebond extends BilleMaladroit {
         Vecteur pesanteur;
 
         public BilleMvtPesanteurFrottementRebond(Vecteur position, double rayon, Vecteur vitesse, Vecteur pesanteur,

@@ -2,8 +2,8 @@ package angry_balls.modele;
 
 public class ControleurBilleLibre extends ControleurBille {
 
-    public ControleurBilleLibre(BillePrehensible bille, ControleurBille precedant, ControleurBille suivant){
-        super(bille, precedant, suivant);
+    public ControleurBilleLibre(BillePrehensible bille, ControleurBille precedent, ControleurBille suivant){
+        super(bille, precedent, suivant);
     }
 
     public void actionDetectee() {
@@ -18,7 +18,7 @@ public class ControleurBilleLibre extends ControleurBille {
         // TODO
     }
 
-    public void etatPrecedant() {
+    public void etatPrecedent() {
         // TODO
     }
 

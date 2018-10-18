@@ -4,14 +4,14 @@ import java.util.Vector;
 
 public abstract class ComportementAcceleration{
 
-    private Bille billeCourrante;
+    private Bille billeCourante;
 
     ComportementAcceleration(Bille billeCourante){
-        this.billeCourrante = billeCourrante;
+        this.billeCourante = billeCourante;
     }
 
-    public Bille getBilleCourrante(){
-        return billeCourrante;
+    public Bille getBilleCourante(){
+        return billeCourante;
     }
 
     public abstract void gestionAcceleration(Vector<Bille> billes);

@@ -6,9 +6,9 @@ public abstract class ControleurBille{
     private ControleurBille suivant;
     private ControleurBille precedent;
 
-    public ControleurBille(BillePrehensible bille, ControleurBille precedant, ControleurBille suivant){
+    public ControleurBille(BillePrehensible bille, ControleurBille precedent, ControleurBille suivant){
         this.suivant = suivant;
-        this.precedent = precedant;
+        this.precedent = precedent;
         this.bille = bille;
     }
 
@@ -18,6 +18,6 @@ public abstract class ControleurBille{
 
     public abstract void etatSuivant();
 
-    public abstract void etatPrecedant();
+    public abstract void etatPrecedent();
 
 }

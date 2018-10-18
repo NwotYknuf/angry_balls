@@ -2,14 +2,14 @@ package angry_balls.modele;
 
 public abstract class ComportementCollision{
 
-    private Bille billeCourrante;
+    private Bille billeCourante;
 
     ComportementCollision(Bille billeCourante){
-        this.billeCourrante = billeCourrante;
+        this.billeCourante = billeCourante;
     }
 
-    public Bille getBilleCourrante(){
-        return billeCourrante;
+    public Bille getBilleCourante(){
+        return billeCourante;
     }
 
     public abstract void collisionContour(double abscisseCoinHautGauche, double ordonneeCoinHautGauche, double largeur,double hauteur);

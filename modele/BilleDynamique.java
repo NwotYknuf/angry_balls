@@ -8,11 +8,11 @@ import java.awt.Color;
 public class BilleDynamique extends Bille {
 
     private Vector<ComportementCollision> comportementsCollision;
-    private Vector<ComportementAcceleration> comportementAccelerations;
+    private Vector<ComportementAcceleration> comportementsAcceleration;
 
     public BilleDynamique(Vecteur position, double rayon, Vecteur vitesse, Color couleur){
         super(position, rayon, vitesse, couleur);
-        comportementAccelerations = new Vector<ComportementAcceleration>();
+        comportementsAcceleration = new Vector<ComportementAcceleration>();
         comportementsCollision = new Vector<ComportementCollision>();
     }
 
@@ -21,7 +21,7 @@ public class BilleDynamique extends Bille {
     }
 
     public void ajouterComportementAcceleration(ComportementAcceleration c){
-        comportementAccelerations.add(c);
+        comportementsAcceleration.add(c);
     }
 
     public void collisionContour(double abscisseCoinHautGauche, double ordonneeCoinHautGauche, double largeur, double hauteur){

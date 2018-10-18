@@ -1,4 +1,4 @@
-package angry_balls.modele;
+package angry_balls.modele.maladroit;
 
 import java.awt.Color;
 

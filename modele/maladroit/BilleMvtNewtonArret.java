@@ -1,8 +1,10 @@
-package angry_balls.modele;
+package angry_balls.modele.maladroit;
 
 import java.awt.Color;
 import java.util.Vector;
 
+import angry_balls.modele.Bille;
+import angry_balls.modele.OutilsBille;
 import angry_balls.mesmaths.cinematique.Collisions;
 import angry_balls.mesmaths.geometrie.base.Vecteur;
 import angry_balls.mesmaths.mecanique.MecaniquePoint;

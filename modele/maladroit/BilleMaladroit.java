@@ -1,5 +1,6 @@
-package angry_balls.modele;
+package angry_balls.modele.maladroit;
 
+import angry_balls.modele.Bille;
 import angry_balls.mesmaths.geometrie.base.Vecteur;
 import java.util.Vector;
 import java.awt.Color;

@@ -6,11 +6,7 @@ import java.util.Vector;
 import angry_balls.mesmaths.geometrie.base.Vecteur;
 
 import angry_balls.modele.Bille;
-import angry_balls.modele.BilleMvtNewtonArret;
-import angry_balls.modele.BilleMvtNewtonFrottementRebond;
-import angry_balls.modele.BilleMvtRUPasseMurailles;
-import angry_balls.modele.BilleMvtRURebond;
-import angry_balls.modele.BilleMvtPesanteurFrottementRebond;
+import angry_balls.modele.maladroit.*;
 import angry_balls.vues.CadreAngryBalls;
 import angry_balls.vues.VueBillard;
 

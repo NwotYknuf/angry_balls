@@ -2,10 +2,8 @@ package angry_balls.modele;
 
 import java.util.Vector;
 
-public class ComportementAcceleration{
+public abstract class ComportementAcceleration{
 
-    
-
-    public void gestionAcceleration(Vector<Bille> billes);
+    public abstract void gestionAcceleration(Vector<Bille> billes);
 
 }

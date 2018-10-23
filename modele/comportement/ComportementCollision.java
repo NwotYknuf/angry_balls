@@ -1,5 +1,6 @@
-package angry_balls.modele;
+package angry_balls.modele.comportement;
 
+import angry_balls.modele.*;
 public abstract class ComportementCollision{
 
     private Bille billeCourante;

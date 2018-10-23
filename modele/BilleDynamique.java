@@ -3,6 +3,7 @@ package angry_balls.modele;
 import java.util.Vector;
 import angry_balls.mesmaths.geometrie.base.Vecteur;
 import java.awt.Color;
+import angry_balls.modele.comportement.*;
 
 
 public class BilleDynamique extends Bille {

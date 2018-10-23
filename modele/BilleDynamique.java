@@ -33,7 +33,9 @@ public class BilleDynamique extends Bille {
     }
 
     public void gestionAcceleration(Vector<Bille> billes){
-               
+        
+        this.getAcceleration().set(Vecteur.VECTEURNUL);
+
         for (ComportementAcceleration comportement : comportementsAcceleration) {
             comportement.gestionAcceleration(billes);
         }

@@ -6,6 +6,8 @@ import java.util.Vector;
 import angry_balls.mesmaths.geometrie.base.Vecteur;
 
 import angry_balls.modele.Bille;
+import angry_balls.modele.BilleDynamique;
+import angry_balls.modele.comportement.*;
 import angry_balls.modele.maladroit.*;
 import angry_balls.vues.CadreAngryBalls;
 import angry_balls.vues.VueBillard;
@@ -71,12 +73,41 @@ public class TestAngryBalls {
 
         // --------------- ici commence la partie � changer
         // ---------------------------------
-
+        /*
         billes.add(new BilleMvtRURebond(p0, rayon, v0, Color.red));
         billes.add(new BilleMvtPesanteurFrottementRebond(p1, rayon, v1, new Vecteur(0, 0.001), Color.yellow));
         billes.add(new BilleMvtNewtonFrottementRebond(p2, rayon, v2, Color.green));
         billes.add(new BilleMvtRUPasseMurailles(p3, rayon, v3, Color.cyan));
         billes.add(new BilleMvtNewtonArret(p4, rayon, v4, Color.black));
+        */
+
+        BilleDynamique bille1 = new BilleDynamique(p0, rayon, v0, Color.red);
+        bille1.ajouterComportementAcceleration(new MouvementRectiligne(bille1));
+        bille1.ajouterComportementCollision(new Rebond(bille1));
+       
+        BilleDynamique bille2 = new BilleDynamique(p1, rayon, v1, Color.yellow);
+        bille2.ajouterComportementAcceleration(new MouvementPesanteur(bille2, new Vecteur(0, 0.001)));
+        bille2.ajouterComportementAcceleration(new MouvementFrottementVisqueux(bille2));
+        bille2.ajouterComportementCollision(new Rebond(bille2));
+
+        BilleDynamique bille3 = new BilleDynamique(p2, rayon, v2, Color.green);
+        bille3.ajouterComportementAcceleration(new MouvementNewton(bille3));
+        bille3.ajouterComportementAcceleration(new MouvementFrottementVisqueux(bille3));
+        bille3.ajouterComportementCollision(new Rebond(bille3));
+
+        BilleDynamique bille4 = new BilleDynamique(p3, rayon, v3, Color.cyan);
+        bille4.ajouterComportementAcceleration(new MouvementRectiligne(bille4));
+        bille4.ajouterComportementCollision(new PasseMuraille(bille4));
+
+        BilleDynamique bille5 = new BilleDynamique(p4, rayon, v4, Color.black);
+        bille5.ajouterComportementAcceleration(new MouvementNewton(bille5));
+        bille5.ajouterComportementCollision(new Bloque(bille5));
+
+        billes.add(bille1);
+        billes.add(bille2);
+        billes.add(bille3);
+        billes.add(bille4);
+        billes.add(bille5);
 
         // ---------------------- ici finit la partie � changer
         // -------------------------------------------------------------

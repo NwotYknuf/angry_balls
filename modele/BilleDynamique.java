@@ -25,11 +25,17 @@ public class BilleDynamique extends Bille {
     }
 
     public void collisionContour(double abscisseCoinHautGauche, double ordonneeCoinHautGauche, double largeur, double hauteur){
-        //TODO implementer
+        
+        for (ComportementCollision comportement : comportementsCollision) {
+            comportement.collisionContour(abscisseCoinHautGauche, ordonneeCoinHautGauche, largeur, hauteur);
+        }
     }
 
     public void gestionAcceleration(Vector<Bille> billes){
-        //TODO implementer
+               
+        for (ComportementAcceleration comportement : comportementsAcceleration) {
+            comportement.gestionAcceleration(billes);
+        }
     }
 
 }

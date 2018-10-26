@@ -62,7 +62,7 @@ public class TestAngryBalls {
         p3 = Vecteur.creationAleatoire(0, 0, xMax, yMax);
         p4 = Vecteur.creationAleatoire(0, 0, xMax, yMax);
 
-        // ------------------- crï¿½ation des vecteurs vitesse des billes
+        // ------------------- création des vecteurs vitesse des billes
         // ---------------------------------
 
         v0 = Vecteur.creationAleatoire(-vMax, -vMax, vMax, vMax);
@@ -71,8 +71,42 @@ public class TestAngryBalls {
         v3 = Vecteur.creationAleatoire(-vMax, -vMax, vMax, vMax);
         v4 = Vecteur.creationAleatoire(-vMax, -vMax, vMax, vMax);
 
-        // --------------- ici commence la partie ï¿½ changer
+        // --------------- création des billes et leurs comportements 
         // ---------------------------------
+        
+        // ----- Bille Rouge : Mouvements rectiligne et rebond
+        BilleDynamique billeRouge = new BilleDynamique(p0, rayon, v0, Color.red);
+        billeRouge.ajouterComportementAcceleration(new MouvementRectiligne(billeRouge));
+        billeRouge.ajouterComportementCollision(new Rebond(billeRouge));
+       
+        // ----- Bille Jaune : Mouvements pesanteur, frottement visqueux et rebond
+        BilleDynamique billeJaune = new BilleDynamique(p1, rayon, v1, Color.yellow);
+        billeJaune.ajouterComportementAcceleration(new MouvementPesanteur(billeJaune, new Vecteur(0, 0.001)));
+        billeJaune.ajouterComportementAcceleration(new MouvementFrottementVisqueux(billeJaune));
+        billeJaune.ajouterComportementCollision(new Rebond(billeJaune));
+
+        // ----- Bille Verte : Mouvements de Newton, frottement visqueux et rebond
+        BilleDynamique billeVerte = new BilleDynamique(p2, rayon, v2, Color.green);
+        billeVerte.ajouterComportementAcceleration(new MouvementNewton(billeVerte));
+        billeVerte.ajouterComportementAcceleration(new MouvementFrottementVisqueux(billeVerte));
+        billeVerte.ajouterComportementCollision(new Rebond(billeVerte));
+
+        // ----- Bille Bleue : Mouvements rectiligne et passe muraille
+        BilleDynamique billeBleue = new BilleDynamique(p3, rayon, v3, Color.cyan);
+        billeBleue.ajouterComportementAcceleration(new MouvementRectiligne(billeBleue));
+        billeBleue.ajouterComportementCollision(new PasseMuraille(billeBleue));
+
+        // ----- Bille Noire : Mouvements de Newton et blocage
+        BilleDynamique billeNoire = new BilleDynamique(p4, rayon, v4, Color.black);
+        billeNoire.ajouterComportementAcceleration(new MouvementNewton(billeNoire));
+        billeNoire.ajouterComportementCollision(new Bloque(billeNoire));
+
+        billes.add(billeRouge);
+        billes.add(billeJaune);
+        billes.add(billeVerte);
+        billes.add(billeBleue);
+        billes.add(billeNoire);
+
         /*
         billes.add(new BilleMvtRURebond(p0, rayon, v0, Color.red));
         billes.add(new BilleMvtPesanteurFrottementRebond(p1, rayon, v1, new Vecteur(0, 0.001), Color.yellow));
@@ -80,37 +114,6 @@ public class TestAngryBalls {
         billes.add(new BilleMvtRUPasseMurailles(p3, rayon, v3, Color.cyan));
         billes.add(new BilleMvtNewtonArret(p4, rayon, v4, Color.black));
         */
-
-        BilleDynamique bille1 = new BilleDynamique(p0, rayon, v0, Color.red);
-        bille1.ajouterComportementAcceleration(new MouvementRectiligne(bille1));
-        bille1.ajouterComportementCollision(new Rebond(bille1));
-       
-        BilleDynamique bille2 = new BilleDynamique(p1, rayon, v1, Color.yellow);
-        bille2.ajouterComportementAcceleration(new MouvementPesanteur(bille2, new Vecteur(0, 0.001)));
-        bille2.ajouterComportementAcceleration(new MouvementFrottementVisqueux(bille2));
-        bille2.ajouterComportementCollision(new Rebond(bille2));
-
-        BilleDynamique bille3 = new BilleDynamique(p2, rayon, v2, Color.green);
-        bille3.ajouterComportementAcceleration(new MouvementNewton(bille3));
-        bille3.ajouterComportementAcceleration(new MouvementFrottementVisqueux(bille3));
-        bille3.ajouterComportementCollision(new Rebond(bille3));
-
-        BilleDynamique bille4 = new BilleDynamique(p3, rayon, v3, Color.cyan);
-        bille4.ajouterComportementAcceleration(new MouvementRectiligne(bille4));
-        bille4.ajouterComportementCollision(new PasseMuraille(bille4));
-
-        BilleDynamique bille5 = new BilleDynamique(p4, rayon, v4, Color.black);
-        bille5.ajouterComportementAcceleration(new MouvementNewton(bille5));
-        bille5.ajouterComportementCollision(new Bloque(bille5));
-
-        billes.add(bille1);
-        billes.add(bille2);
-        billes.add(bille3);
-        billes.add(bille4);
-        billes.add(bille5);
-
-        // ---------------------- ici finit la partie ï¿½ changer
-        // -------------------------------------------------------------
 
         System.out.println("billes = " + billes);
 

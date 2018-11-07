@@ -6,6 +6,10 @@ public class ControleurBilleAttrapee extends ControleurState {
         super(app);
     }
 
+    public ControleurBilleAttrapee(App app, ControleurState s, ControleurState p){
+        super(app, s, p);  
+    }
+
     public void actionDetectee() {
         // TODO
     }

@@ -10,6 +10,12 @@ public abstract class ControleurState{
         this.app = app;
     }
 
+    public ControleurState(App app, ControleurState s, ControleurState p){
+        this.app = app;
+        suivant = s;
+        precedent = p;
+    }
+
     public void setSuivant(ControleurState c){
         suivant = c;
     }

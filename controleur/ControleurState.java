@@ -6,10 +6,16 @@ public abstract class ControleurState{
     private ControleurState suivant;
     private ControleurState precedent;
 
-    public ControleurState(App app, ControleurState precedent, ControleurState suivant){
-        this.suivant = suivant;
-        this.precedent = precedent;
+    public ControleurState(App app){
         this.app = app;
+    }
+
+    public void setSuivant(ControleurState c){
+        suivant = c;
+    }
+
+    public void setPrecedent(ControleurState c){
+        precedent = c;
     }
 
     public abstract void actionDetectee();
@@ -17,11 +23,15 @@ public abstract class ControleurState{
     public abstract void traite();
 
     public void etatSuivant(){
-        app.setControleurCourant(suivant);
+        if(suivant != null){
+            app.setControleurCourant(suivant);
+        }
     }
 
     public void etatPrecedent(){
-        app.setControleurCourant(precedent);
+        if(precedent != null){
+            app.setControleurCourant(precedent);
+        }
     }
 
 }

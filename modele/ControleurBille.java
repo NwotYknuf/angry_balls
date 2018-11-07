@@ -16,8 +16,12 @@ public abstract class ControleurBille{
 
     public abstract void traite();
 
-    public abstract void etatSuivant();
+    public void etatSuivant(){
+        bille.setControleurCourrant(suivant);
+    }
 
-    public abstract void etatPrecedent();
+    public void etatPrecedent(){
+        bille.setControleurCourrant(precedent);
+    }
 
 }

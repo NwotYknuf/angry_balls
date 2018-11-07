@@ -14,12 +14,4 @@ public class ControleurBilleAttrapee extends ControleurBille {
         // TODO
     }
 
-    public void etatSuivant() {
-        // TODO
-    }
-
-    public void etatPrecedent() {
-        // TODO
-    }
-
 }

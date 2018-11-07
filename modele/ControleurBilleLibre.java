@@ -7,18 +7,14 @@ public class ControleurBilleLibre extends ControleurBille {
     }
 
     public void actionDetectee() {
+        //On a cliqué sur la bille
+
         // TODO
     }
 
     public void traite() {
-        // TODO
-    }
+        //ajouter un état sur la bille
 
-    public void etatSuivant() {
-        // TODO
-    }
-
-    public void etatPrecedent() {
         // TODO
     }
 

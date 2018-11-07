@@ -1,7 +1,8 @@
-package angry_balls;
+package angry_balls.controleur;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import angry_balls.*;
 
 /**
  *  ICI : IL N'Y A RIEN A CHANGER 

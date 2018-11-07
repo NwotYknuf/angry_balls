@@ -19,12 +19,12 @@ public class CadreAngryBalls extends Frame implements VueBillard {
     public Button lancerBilles, arreterBilles;
     Panel haut, centre, bas;
 
-    EcouteurTerminaison ecouteurTerminaison;
+    //EcouteurTerminaison ecouteurTerminaison;
 
     public CadreAngryBalls(String titre, String message, Vector<Bille> billes) throws HeadlessException {
         super(titre);
         Outils.place(this, 0.33, 0.33, 0.5, 0.5);
-        this.ecouteurTerminaison = new EcouteurTerminaison(this);
+        //this.ecouteurTerminaison = new EcouteurTerminaison(this);
 
         this.haut = new Panel();
         this.haut.setBackground(Color.LIGHT_GRAY);
@@ -46,7 +46,7 @@ public class CadreAngryBalls extends Frame implements VueBillard {
 
         this.lancerBilles = new Button("Lancer les billes");
         this.bas.add(this.lancerBilles);
-        this.arreterBilles = new Button("Arrêter les billes");
+        this.arreterBilles = new Button("Arrï¿½ter les billes");
         this.bas.add(this.arreterBilles);
 
     }

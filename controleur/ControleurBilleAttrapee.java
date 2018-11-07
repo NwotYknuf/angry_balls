@@ -1,8 +1,8 @@
 package angry_balls.controleur;
 
-public class ControleurBilleAttrapee extends Controleur {
+public class ControleurBilleAttrapee extends ControleurState {
 
-    public ControleurBilleAttrapee(App app, Controleur precedent, Controleur suivant){
+    public ControleurBilleAttrapee(App app, ControleurState precedent, ControleurState suivant){
         super(app, precedent, suivant);
     }
 

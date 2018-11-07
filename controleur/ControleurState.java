@@ -1,12 +1,12 @@
 package angry_balls.controleur;
 
-public abstract class Controleur{
+public abstract class ControleurState{
 
     App app;
-    private Controleur suivant;
-    private Controleur precedent;
+    private ControleurState suivant;
+    private ControleurState precedent;
 
-    public Controleur(App app, Controleur precedent, Controleur suivant){
+    public ControleurState(App app, ControleurState precedent, ControleurState suivant){
         this.suivant = suivant;
         this.precedent = precedent;
         this.app = app;

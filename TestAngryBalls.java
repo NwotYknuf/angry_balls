@@ -11,6 +11,7 @@ import angry_balls.modele.comportement.*;
 import angry_balls.modele.maladroit.*;
 import angry_balls.vues.CadreAngryBalls;
 import angry_balls.vues.VueBillard;
+import angry_balls.controleur.*;
 
 /**
  * Gestion d'une liste de billes en mouvement ayant toutes un comportement
@@ -62,7 +63,7 @@ public class TestAngryBalls {
         p3 = Vecteur.creationAleatoire(0, 0, xMax, yMax);
         p4 = Vecteur.creationAleatoire(0, 0, xMax, yMax);
 
-        // ------------------- création des vecteurs vitesse des billes
+        // ------------------- crï¿½ation des vecteurs vitesse des billes
         // ---------------------------------
 
         v0 = Vecteur.creationAleatoire(-vMax, -vMax, vMax, vMax);
@@ -71,7 +72,7 @@ public class TestAngryBalls {
         v3 = Vecteur.creationAleatoire(-vMax, -vMax, vMax, vMax);
         v4 = Vecteur.creationAleatoire(-vMax, -vMax, vMax, vMax);
 
-        // --------------- création des billes et leurs comportements 
+        // --------------- crï¿½ation des billes et leurs comportements 
         // ---------------------------------
         
         // ----- Bille Rouge : Mouvements rectiligne et rebond

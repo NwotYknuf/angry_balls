@@ -1,6 +1,6 @@
 package angry_balls.controleur;
 
-import angry_balls.AnimationBilles;
+import angry_balls.modele.AnimationBilles;
 import angry_balls.vues.CadreAngryBalls;
 
 public class App extends Observable{

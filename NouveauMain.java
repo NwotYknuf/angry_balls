@@ -12,6 +12,7 @@ import angry_balls.modele.maladroit.*;
 import angry_balls.vues.CadreAngryBalls;
 import angry_balls.vues.VueBillard;
 import angry_balls.controleur.*;
+import angry_balls.modele.AnimationBilles;
 
 /**
  * Gestion d'une liste de billes en mouvement ayant toutes un comportement

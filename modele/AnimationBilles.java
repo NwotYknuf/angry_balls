@@ -1,4 +1,4 @@
-package angry_balls;
+package angry_balls.modele;
 
 import java.util.Vector;
 

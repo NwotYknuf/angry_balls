@@ -2,7 +2,7 @@ package angry_balls.controleur;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import angry_balls.*;
+import angry_balls.modele.AnimationBilles;
 
 /**
  *  ICI : IL N'Y A RIEN A CHANGER 

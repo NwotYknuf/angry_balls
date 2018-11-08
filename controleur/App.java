@@ -8,8 +8,9 @@ public class App extends Observable{
     private ControleurState controleurCourant;
     private AnimationBilles animationBilles;
     private CadreAngryBalls cadreAngryBalls;
+    private EtatApp etatApp;
 
-    public App(AnimationBilles animationBilles, CadreAngryBalls cadreAngryBalls){
+    public App(AnimationBilles animationBilles, CadreAngryBalls cadreAngryBalls, EtatAppAWT etat){
 
         this.animationBilles = animationBilles;
         this.cadreAngryBalls = cadreAngryBalls;
@@ -21,6 +22,11 @@ public class App extends Observable{
         ba.setPrecedent(bl);
 
         controleurCourant = bl;
+
+        etatApp = etat;
+
+        etatApp.ajouterObserveur(animationBilles);
+        etatApp.ajouterObserveur(cadreAngryBalls);
 
     }
 

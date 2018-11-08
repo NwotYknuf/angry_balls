@@ -2,9 +2,9 @@ package angry_balls.controleur;
 
 import java.util.Vector;;
 
-public abstract class Observable{
+public class Observable{
 
-    private Vector<Observeur> observers;
+    protected Vector<Observeur> observers;
     private boolean aChange;
 
     public Observable(){
@@ -14,15 +14,29 @@ public abstract class Observable{
 
     protected void setChange(){
         aChange = true;
+        
+    }
+
+    protected void resetChange(){
+        aChange = false;
     }
 
     public void ajouterObserveur(Observeur o){
         observers.add(o);
     }
 
-    public abstract void notifierObserveurs();
+    public void notifierObserveurs(Object o){
+        for (Observeur obs : observers) {
+            obs.update(this, o);
+        }
+        resetChange();
+    }
 
-    public abstract void notifierObserveurs(Object o);
-
+    public void notifierObserveurs(){
+        for (Observeur obs : observers) {
+            obs.update(this, null);
+        }
+        resetChange();
+    }
 
 }

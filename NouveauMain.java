@@ -126,14 +126,6 @@ public class NouveauMain {
 
         App app = new App(animationBilles, cadre);
 
-
-
-        // ----------------------- mise en place des �couteurs de boutons qui permettent
-        // de contr�ler (un peu...) l'application -----------------
-
-        EcouteurBoutonLancer ecouteurBoutonLancer = new EcouteurBoutonLancer(animationBilles);
-        EcouteurBoutonArreter ecouteurBoutonArreter = new EcouteurBoutonArreter(animationBilles);
-
     }
 
 }

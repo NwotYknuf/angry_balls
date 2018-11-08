@@ -1,15 +1,16 @@
-package angry_balls.outilsvues;
+package angry_balls.controleur;
 
-import java.awt.Window;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
 public class EcouteurTerminaison implements WindowListener
 {
 
-public EcouteurTerminaison(Window window)
+    private EtatApp etat;
+
+public EcouteurTerminaison(EtatApp etat)
 {
-window.addWindowListener(this);
+    this.etat = etat;
 }
 
 @Override
@@ -29,8 +30,7 @@ public void windowClosed(WindowEvent arg0)
 @Override
 public void windowClosing(WindowEvent arg0)
 {
-System.exit(0);
-
+    etat.setFermerFenetre();
 }
 
 @Override

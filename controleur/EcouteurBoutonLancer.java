@@ -10,16 +10,16 @@ import angry_balls.modele.AnimationBilles;
  *  */
 public class EcouteurBoutonLancer implements ActionListener
 {
-AnimationBilles animationBilles;
+EtatApp etat;
 
 
 
 /**
  * @param animationsBilles
  */
-public EcouteurBoutonLancer(AnimationBilles animationBilles)
+public EcouteurBoutonLancer(EtatApp etat)
 {
-this.animationBilles = animationBilles;
+this.etat = etat;
 }
 
 
@@ -27,7 +27,7 @@ this.animationBilles = animationBilles;
 @Override
 public void actionPerformed(ActionEvent arg0)
 {
-this.animationBilles.lancerAnimation();
+this.etat.setLancerPresse();
 }
 
 }

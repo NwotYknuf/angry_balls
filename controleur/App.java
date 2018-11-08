@@ -1,18 +1,13 @@
 package angry_balls.controleur;
 
-import javax.xml.bind.Marshaller.Listener;
-
 import angry_balls.AnimationBilles;
-import angry_balls.outilsvues.EcouteurTerminaison;
 import angry_balls.vues.CadreAngryBalls;
 
-public class App{
+public class App extends Observable{
 
     private ControleurState controleurCourant;
     private AnimationBilles animationBilles;
     private CadreAngryBalls cadreAngryBalls;
-
-    private Listener l;
 
     public App(AnimationBilles animationBilles, CadreAngryBalls cadreAngryBalls){
 
@@ -27,18 +22,23 @@ public class App{
 
         controleurCourant = bl;
 
-        cadreAngryBalls.lancerBilles.addActionListener(new EcouteurBoutonLancer(animationBilles));
-        cadreAngryBalls.arreterBilles.addActionListener(new EcouteurBoutonArreter(animationBilles));
-        cadreAngryBalls.addWindowListener(new EcouteurTerminaison(cadreAngryBalls));
-
-
     }
 
     public void setControleurCourant(ControleurState controleur){
         controleurCourant = controleur;
     }
 
+    public void notifierObserveurs(){
+        //TODO
+    }
 
+    public void notifierObserveurs(Object arg){
+        //TODO
+    }
+
+    public void setChange(){
+        //TODO
+    }
 
 
 

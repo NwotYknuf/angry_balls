@@ -125,7 +125,7 @@ public class NouveauMain {
         AnimationBilles animationBilles = new AnimationBilles(billes, cadre);
 
 
-        App app = new App(animationBilles, cadre);
+        App app = new App(animationBilles, cadre, new EtatAppAWT(cadre));
 
     }
 

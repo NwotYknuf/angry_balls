@@ -21,6 +21,10 @@ public class Observable{
         aChange = false;
     }
 
+    public boolean aChange(){
+        return aChange;
+    }
+
     public void ajouterObserveur(Observeur o){
         observers.add(o);
     }

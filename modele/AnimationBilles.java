@@ -1,14 +1,9 @@
 package angry_balls.modele;
 
-import java.util.Observer;
 import java.util.Vector;
 
 import angry_balls.modele.Bille;
 import angry_balls.vues.VueBillard;
-import angry_balls.controleur.Observeur;
-import angry_balls.controleur.EtatApp;
-import angry_balls.controleur.Observable;
-
 /**
  * responsable de l'animation des billes, c-a-d responsable du mouvement de la
  * liste des billes. met perpetuellement a jour les billes. gere le delai entre
@@ -17,7 +12,7 @@ import angry_balls.controleur.Observable;
  * 
  * ICI : IL N'Y A RIEN A CHANGER
  */
-public class AnimationBilles implements Runnable, Observeur {
+public class AnimationBilles implements Runnable {
 
     Vector<Bille> billes; // la liste de toutes les billes en mouvement
     VueBillard vueBillard; // la vue responsable du dessin des billes
@@ -129,16 +124,4 @@ public class AnimationBilles implements Runnable, Observeur {
         }
     }
 
-    public void update(Observable o, Object arg){
-
-        EtatApp etat = (EtatApp)arg;
-
-        if(etat.getLancerPresse()){
-            this.lancerAnimation();
-        }
-
-        if(etat.getArreterPresse()){
-            this.arreterAnimation();
-        }
-    }
 }

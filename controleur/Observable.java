@@ -33,9 +33,7 @@ public class Observable{
     }
 
     public void notifierObserveurs(){
-        for (Observeur obs : observers) {
-            obs.update(this, null);
-        }
+        notifierObserveurs(null);
         resetChange();
     }
 

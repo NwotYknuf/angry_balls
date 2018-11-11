@@ -1,21 +1,17 @@
 package angry_balls.controleur;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import angry_balls.modele.AnimationBilles;
 
-public class EcouteurBoutonArreter implements ActionListener
-{
-    EtatApp etat;
+public class EcouteurBoutonArreter implements Observeur {
 
-public EcouteurBoutonArreter(EtatApp etat)
-    {
-        this.etat = etat;
+    private AnimationBilles animationBilles;
+
+    public EcouteurBoutonArreter(AnimationBilles animationBilles) {
+        this.animationBilles = animationBilles;
     }
 
-@Override
-public void actionPerformed(ActionEvent e)
-{
-    this.etat.setArreterPresse();
-}
+    public void update(Observable o, Object arg) {
+        animationBilles.arreterAnimation();
+    }
 
 }

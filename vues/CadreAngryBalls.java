@@ -2,12 +2,8 @@ package angry_balls.vues;
 
 import java.awt.*;
 import java.util.Vector;
-
-import angry_balls.controleur.EtatApp;
-import angry_balls.controleur.Observable;
 import angry_balls.modele.Bille;
 import angry_balls.outilsvues.*;
-import angry_balls.controleur.*;
 
 
 /**
@@ -17,7 +13,7 @@ import angry_balls.controleur.*;
  * ICI : IL N'Y A RIEN A CHANGER
  * 
  */
-public class CadreAngryBalls extends Frame implements VueBillard, Observeur {
+public class CadreAngryBalls extends Frame implements VueBillard {
     TextField presentation;
     Billard billard;
     public Button lancerBilles, arreterBilles;
@@ -76,16 +72,6 @@ public class CadreAngryBalls extends Frame implements VueBillard, Observeur {
     @Override
     public void montrer() {
         this.setVisible(true);
-    }
-
-    public void update(Observable o, Object arg){
-
-        EtatApp etat = (EtatApp)arg;
-
-        if(etat.getFermerFenetre()){
-            System.exit(0);
-        }
-
     }
 
 }

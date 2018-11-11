@@ -8,9 +8,7 @@ import angry_balls.mesmaths.geometrie.base.Vecteur;
 import angry_balls.modele.Bille;
 import angry_balls.modele.BilleDynamique;
 import angry_balls.modele.comportement.*;
-import angry_balls.modele.maladroit.*;
 import angry_balls.vues.CadreAngryBalls;
-import angry_balls.vues.VueBillard;
 import angry_balls.controleur.*;
 import angry_balls.modele.AnimationBilles;
 
@@ -125,7 +123,7 @@ public class NouveauMain {
         AnimationBilles animationBilles = new AnimationBilles(billes, cadre);
 
 
-        App app = new App(animationBilles, cadre, new EtatAppAWT(cadre));
+        App app = new App(animationBilles, cadre);
 
     }
 

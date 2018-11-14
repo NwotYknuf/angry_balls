@@ -15,7 +15,7 @@ import angry_balls.outilsvues.*;
  */
 public class CadreAngryBalls extends Frame implements VueBillard {
     TextField presentation;
-    Billard billard;
+    public Billard billard;
     public Button lancerBilles, arreterBilles;
     Panel haut, centre, bas;
 

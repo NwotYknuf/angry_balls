@@ -29,7 +29,7 @@ public class App{
         arreter = new DetecteBouttonAWT(cadreAngryBalls.arreterBilles);
         lancer = new DetecteBouttonAWT(cadreAngryBalls.lancerBilles);
         fermer = new DetecteBouttonFermerAWT(cadreAngryBalls);
-        cliqueGauche = new DetecteCliqueGaucheAWT(cadreAngryBalls);
+        cliqueGauche = new DetecteCliqueGaucheAWT(cadreAngryBalls.billard);
 
         //ajouter les observables
 

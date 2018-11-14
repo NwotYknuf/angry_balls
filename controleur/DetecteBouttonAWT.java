@@ -6,11 +6,11 @@ import java.awt.event.ActionListener;
 
 public class DetecteBouttonAWT extends DetecteBoutton{
 
-    private class EventButtonPressed implements ActionListener{
+    private class EventBoutonPresse implements ActionListener{
 
         private DetecteBoutton detecteBoutton;
 
-        public EventButtonPressed(DetecteBoutton detecteBoutton){
+        public EventBoutonPresse(DetecteBoutton detecteBoutton){
             this.detecteBoutton = detecteBoutton;
         }
 
@@ -22,7 +22,7 @@ public class DetecteBouttonAWT extends DetecteBoutton{
 
     public DetecteBouttonAWT(Button button){
         button.addActionListener(
-            new EventButtonPressed(this) );
+            new EventBoutonPresse(this) );
     }
 
 }

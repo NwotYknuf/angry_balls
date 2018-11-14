@@ -1,5 +1,7 @@
 package angry_balls.controleur;
 
+import angry_balls.mesmaths.geometrie.base.Vecteur;
+
 public class ControleurBilleAttrapee extends ControleurState {
 
     public ControleurBilleAttrapee(App app){
@@ -10,7 +12,7 @@ public class ControleurBilleAttrapee extends ControleurState {
         super(app, s, p);  
     }
 
-    public void actionDetectee() {
+    public void actionDetectee(Vecteur pos) {
         // TODO
     }
 

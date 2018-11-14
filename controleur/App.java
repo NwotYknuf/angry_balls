@@ -8,6 +8,7 @@ public class App{
     private ControleurState controleurCourant;
     private AnimationBilles animationBilles;
     private CadreAngryBalls cadreAngryBalls;
+    private DetecteBoutton cliqueGauche;
     private DetecteBoutton arreter;
     private DetecteBoutton lancer;
     private DetecteBoutton fermer;
@@ -28,12 +29,14 @@ public class App{
         arreter = new DetecteBouttonAWT(cadreAngryBalls.arreterBilles);
         lancer = new DetecteBouttonAWT(cadreAngryBalls.lancerBilles);
         fermer = new DetecteBouttonFermerAWT(cadreAngryBalls);
+        cliqueGauche = new DetecteCliqueGaucheAWT(cadreAngryBalls);
 
         //ajouter les observables
 
         arreter.ajouterObserveur(new EcouteurBoutonArreter(animationBilles));
         lancer.ajouterObserveur(new EcouteurBoutonLancer(animationBilles));
         fermer.ajouterObserveur(new EcouteurTerminaison());
+        cliqueGauche.ajouterObserveur(new EcouteurBouttonEnfonce(bl));
 
     }
 

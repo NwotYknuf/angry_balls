@@ -1,5 +1,7 @@
 package angry_balls.controleur;
 
+import angry_balls.mesmaths.geometrie.base.Vecteur;
+
 public abstract class ControleurState{
 
     App app;
@@ -24,7 +26,7 @@ public abstract class ControleurState{
         precedent = c;
     }
 
-    public abstract void actionDetectee();
+    public abstract void actionDetectee(Vecteur pos);
 
     public abstract void traite();
 

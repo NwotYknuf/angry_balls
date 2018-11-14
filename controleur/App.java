@@ -17,6 +17,7 @@ public class App{
     private DetecteEvenement lancer;
     private DetecteEvenement fermer;
     private Bille billeCourante = null;
+
     private Vector<Bille> billes;
 
     public App(AnimationBilles animationBilles, CadreAngryBalls cadreAngryBalls, Vector<Bille> billes){

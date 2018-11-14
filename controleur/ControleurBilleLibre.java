@@ -45,4 +45,8 @@ public class ControleurBilleLibre extends ControleurState {
         //Rien de spéciale à faire ici, on observe juste les billes
     }
 
+    public void surChangement(){
+        //Rien
+    }
+
 }

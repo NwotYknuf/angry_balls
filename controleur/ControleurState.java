@@ -33,13 +33,17 @@ public abstract class ControleurState{
     public void etatSuivant(){
         if(suivant != null){
             app.setControleurCourant(suivant);
+            suivant.surChangement();
         }
     }
 
     public void etatPrecedent(){
         if(precedent != null){
             app.setControleurCourant(precedent);
+            suivant.surChangement();
         }
     }
+
+    public abstract void surChangement();
 
 }

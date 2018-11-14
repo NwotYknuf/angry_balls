@@ -20,4 +20,8 @@ public class ControleurBilleAttrapee extends ControleurState {
         //Envoyer au comportement de la bille un vecteur celon le mouvement de la sourie
     }
 
+    public void surChangement(){
+        //ajouter le comportement à la bille
+    }
+
 }

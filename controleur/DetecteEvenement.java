@@ -1,8 +1,8 @@
 package angry_balls.controleur;
 
-public abstract class DetecteBoutton extends Observable{
+public abstract class DetecteEvenement extends Observable{
 
-    public DetecteBoutton(){
+    public DetecteEvenement(){
 
     }
 

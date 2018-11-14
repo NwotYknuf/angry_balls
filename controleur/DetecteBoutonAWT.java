@@ -4,13 +4,13 @@ import java.awt.Button;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class DetecteBouttonAWT extends DetecteBoutton{
+public class DetecteBoutonAWT extends DetecteEvenement{
 
     private class EventBoutonPresse implements ActionListener{
 
-        private DetecteBoutton detecteBoutton;
+        private DetecteEvenement detecteBoutton;
 
-        public EventBoutonPresse(DetecteBoutton detecteBoutton){
+        public EventBoutonPresse(DetecteEvenement detecteBoutton){
             this.detecteBoutton = detecteBoutton;
         }
 
@@ -20,7 +20,7 @@ public class DetecteBouttonAWT extends DetecteBoutton{
 
     }
 
-    public DetecteBouttonAWT(Button button){
+    public DetecteBoutonAWT(Button button){
         button.addActionListener(
             new EventBoutonPresse(this) );
     }

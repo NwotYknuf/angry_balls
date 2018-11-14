@@ -7,13 +7,13 @@ import javax.swing.event.MouseInputListener;
 import angry_balls.mesmaths.geometrie.base.Vecteur;
 import angry_balls.vues.Billard;
 
-public class DetecteCliqueGaucheAWT extends DetecteBoutton{
+public class DetecteClicGaucheEnfonceAWT extends DetecteEvenement{
 
     private class EventBoutonPresse implements MouseInputListener{
         
-        private DetecteCliqueGaucheAWT detecteBoutton;
+        private DetecteClicGaucheEnfonceAWT detecteBoutton;
 
-        public EventBoutonPresse(DetecteCliqueGaucheAWT detecteBoutton){
+        public EventBoutonPresse(DetecteClicGaucheEnfonceAWT detecteBoutton){
             this.detecteBoutton = detecteBoutton;
         }
 
@@ -48,7 +48,7 @@ public class DetecteCliqueGaucheAWT extends DetecteBoutton{
 
     }
 
-    public DetecteCliqueGaucheAWT(Billard billard){
+    public DetecteClicGaucheEnfonceAWT(Billard billard){
         billard.addMouseListener(
             new EventBoutonPresse(this));
     }

@@ -2,14 +2,16 @@ package angry_balls.controleur;
 
 import angry_balls.modele.AnimationBilles;
 
-public class EcouteurBoutonLancer implements Observeur {
+public class EcouteurArreter implements Observeur {
+
     private AnimationBilles animationBilles;
 
-    public EcouteurBoutonLancer(AnimationBilles animationBilles) {
+    public EcouteurArreter(AnimationBilles animationBilles) {
         this.animationBilles = animationBilles;
     }
 
     public void update(Observable o, Object arg) {
-        animationBilles.lancerAnimation();
+        animationBilles.arreterAnimation();
     }
+
 }

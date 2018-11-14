@@ -2,21 +2,26 @@ package angry_balls.controleur;
 
 import angry_balls.modele.AnimationBilles;
 import angry_balls.vues.CadreAngryBalls;
+import angry_balls.modele.*;
+import java.util.Vector;
 
 public class App{
 
     private ControleurState controleurCourant;
     private AnimationBilles animationBilles;
     private CadreAngryBalls cadreAngryBalls;
-    private DetecteBoutton cliqueGauche;
-    private DetecteBoutton arreter;
-    private DetecteBoutton lancer;
-    private DetecteBoutton fermer;
+    private DetecteEvenement cliqueGauche;
+    private DetecteEvenement arreter;
+    private DetecteEvenement lancer;
+    private DetecteEvenement fermer;
+    private Bille billeCourante = null;
+    private Vector<Bille> billes;
 
-    public App(AnimationBilles animationBilles, CadreAngryBalls cadreAngryBalls){
+    public App(AnimationBilles animationBilles, CadreAngryBalls cadreAngryBalls, Vector<Bille> billes){
 
         this.animationBilles = animationBilles;
         this.cadreAngryBalls = cadreAngryBalls;
+        this.billes = billes;
         
         ControleurBilleLibre bl = new ControleurBilleLibre(this);
         ControleurBilleAttrapee ba = new ControleurBilleAttrapee(this);
@@ -26,22 +31,38 @@ public class App{
 
         controleurCourant = bl;
 
-        arreter = new DetecteBouttonAWT(cadreAngryBalls.arreterBilles);
-        lancer = new DetecteBouttonAWT(cadreAngryBalls.lancerBilles);
-        fermer = new DetecteBouttonFermerAWT(cadreAngryBalls);
-        cliqueGauche = new DetecteCliqueGaucheAWT(cadreAngryBalls.billard);
+        arreter = new DetecteBoutonAWT(cadreAngryBalls.arreterBilles);
+        lancer = new DetecteBoutonAWT(cadreAngryBalls.lancerBilles);
+        fermer = new DetecteFermerFenetreAWT(cadreAngryBalls);
+        cliqueGauche = new DetecteClicGaucheEnfonceAWT(cadreAngryBalls.billard);
 
         //ajouter les observables
 
-        arreter.ajouterObserveur(new EcouteurBoutonArreter(animationBilles));
-        lancer.ajouterObserveur(new EcouteurBoutonLancer(animationBilles));
-        fermer.ajouterObserveur(new EcouteurTerminaison());
+        arreter.ajouterObserveur(new EcouteurArreter(animationBilles));
+        lancer.ajouterObserveur(new EcouteurLancer(animationBilles));
+        fermer.ajouterObserveur(new EcouteurFermer());
         cliqueGauche.ajouterObserveur(new EcouteurBouttonEnfonce(bl));
 
     }
 
     public void setControleurCourant(ControleurState controleur){
         controleurCourant = controleur;
+    }
+
+    public Vector<Bille> getBilles(){
+        return billes;
+    }
+
+    public void setBilleCourante(Bille bille){
+        this.billeCourante = bille;
+    }
+
+    public Bille getBilleCourante(){
+        return billeCourante;
+    }
+
+    public ControleurState getControleurCourant(){
+        return controleurCourant;
     }
 
 }

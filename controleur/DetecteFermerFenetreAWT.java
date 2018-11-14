@@ -4,13 +4,13 @@ import java.awt.Window;
 import java.awt.event.WindowListener;
 import java.awt.event.WindowEvent;
 
-public class DetecteBouttonFermerAWT extends DetecteBoutton {
+public class DetecteFermerFenetreAWT extends DetecteEvenement {
 
     private class EventWindowClosed implements WindowListener {
 
-        private DetecteBoutton detecteBoutton;
+        private DetecteEvenement detecteBoutton;
 
-        public EventWindowClosed(DetecteBoutton detecteBoutton) {
+        public EventWindowClosed(DetecteEvenement detecteBoutton) {
             this.detecteBoutton = detecteBoutton;
         }
 
@@ -57,7 +57,7 @@ public class DetecteBouttonFermerAWT extends DetecteBoutton {
 
     }
 
-    public DetecteBouttonFermerAWT(Window window) {
+    public DetecteFermerFenetreAWT(Window window) {
         window.addWindowListener(new EventWindowClosed(this));
     }
 

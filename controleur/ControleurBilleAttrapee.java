@@ -13,11 +13,11 @@ public class ControleurBilleAttrapee extends ControleurState {
     }
 
     public void actionDetectee(Vecteur pos) {
-        // TODO
+        //On a relaché le clic gauche, on supprime le comportement piloté et on change le controleur
     }
 
     public void traite() {
-        // TODO
+        //Envoyer au comportement de la bille un vecteur celon le mouvement de la sourie
     }
 
 }

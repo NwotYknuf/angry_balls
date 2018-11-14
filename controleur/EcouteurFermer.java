@@ -1,8 +1,8 @@
 package angry_balls.controleur;
 
-public class EcouteurTerminaison implements Observeur {
+public class EcouteurFermer implements Observeur {
 
-    public EcouteurTerminaison() {
+    public EcouteurFermer() {
     }
 
     public void update(Observable o, Object arg) {

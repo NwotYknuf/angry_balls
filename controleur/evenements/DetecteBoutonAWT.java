@@ -1,4 +1,4 @@
-package angry_balls.controleur;
+package angry_balls.controleur.evenements;
 
 import java.awt.Button;
 import java.awt.event.ActionEvent;
@@ -15,7 +15,7 @@ public class DetecteBoutonAWT extends DetecteEvenement{
         }
 
         public void actionPerformed(ActionEvent e){
-            detecteBoutton.bouttonPresse();
+            detecteBoutton.evenementDeclenche();
         }
 
     }

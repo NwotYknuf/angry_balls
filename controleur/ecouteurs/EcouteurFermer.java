@@ -1,4 +1,5 @@
-package angry_balls.controleur;
+package angry_balls.controleur.ecouteurs;
+import angry_balls.controleur.*;
 
 public class EcouteurFermer implements Observeur {
 

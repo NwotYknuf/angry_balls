@@ -1,4 +1,4 @@
-package angry_balls.controleur;
+package angry_balls.controleur.evenements;
 
 import java.awt.event.MouseEvent;
 

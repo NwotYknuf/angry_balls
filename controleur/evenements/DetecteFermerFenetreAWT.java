@@ -1,4 +1,4 @@
-package angry_balls.controleur;
+package angry_balls.controleur.evenements;
 
 import java.awt.Window;
 import java.awt.event.WindowListener;
@@ -28,7 +28,7 @@ public class DetecteFermerFenetreAWT extends DetecteEvenement {
 
         @Override
         public void windowClosing(WindowEvent arg0) {
-            detecteBoutton.bouttonPresse();
+            detecteBoutton.evenementDeclenche();
         }
 
         @Override

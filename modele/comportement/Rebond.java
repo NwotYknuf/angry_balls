@@ -9,6 +9,10 @@ public class Rebond extends ComportementCollision{
         super(bille);
     }
 
+    public Rebond(Bille bille, String nom){
+        super(bille, nom);
+    }
+
     public void collisionContour(double abscisseCoinHautGauche, double ordonneeCoinHautGauche, double largeur, double hauteur){
 
         Bille billeCourante = this.getBilleCourante();

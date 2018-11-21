@@ -4,12 +4,17 @@ import angry_balls.mesmaths.geometrie.base.Vecteur;
 import angry_balls.modele.*;
 import java.util.Vector;
 
-public abstract class MouvementPilote extends ComportementAcceleration{
+public class MouvementPilote extends ComportementAcceleration{
 
     private Vecteur acceleration;
 
     public MouvementPilote(Bille billeCourante){
         super(billeCourante);
+        acceleration = new Vecteur(0,0);
+    }
+
+    public MouvementPilote(Bille bille, String nom){
+        super(bille, nom);
         acceleration = new Vecteur(0,0);
     }
 

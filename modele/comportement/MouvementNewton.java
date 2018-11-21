@@ -11,6 +11,11 @@ public class MouvementNewton extends ComportementAcceleration{
         super(bille);  
     }
 
+    public MouvementNewton(Bille bille, String nom){
+        super(bille, nom);  
+    }
+
+
     public void gestionAcceleration(Vector<Bille> billes){
         this.getBilleCourante().getAcceleration().ajoute(
             OutilsBille.gestionAccelerationNewton(this.getBilleCourante(), billes));

@@ -21,6 +21,14 @@ public class BilleDynamique extends Bille {
         comportementsCollision.add(c);
     }
 
+    public void supprimerComportementCollision(ComportementCollision comportement){
+        comportementsCollision.remove(comportement);
+    }
+
+    public void supprimerComportementAcceleration(ComportementAcceleration comportement){
+        comportementsAcceleration.remove(comportement);
+    }
+
     public void ajouterComportementAcceleration(ComportementAcceleration c){
         comportementsAcceleration.add(c);
     }

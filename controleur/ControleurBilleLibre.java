@@ -2,6 +2,7 @@ package angry_balls.controleur;
 
 import angry_balls.mesmaths.geometrie.base.Vecteur;
 import angry_balls.modele.Bille;
+import angry_balls.modele.BilleDynamique;
 import angry_balls.controleur.evenements.*;
 
 public class ControleurBilleLibre extends ControleurState {
@@ -30,11 +31,14 @@ public class ControleurBilleLibre extends ControleurState {
             posBille.retire(pos);
 
             if(posBille.norme() < b.getRayon()){
-                //On a cliqué sur la bille
-                System.out.println("Bille attrapée !");
-                app.setBilleCourante(b);
-                this.etatSuivant();
-                break;
+                if(b instanceof BilleDynamique){
+                    BilleDynamique bille = (BilleDynamique)b;
+                    //On a cliqué sur la billedynamique
+                    System.out.println("Bille attrapée !");
+                    app.setBilleCourante(bille);
+                    this.etatSuivant();
+                    break;
+                }                
             }
         }
         

@@ -11,6 +11,10 @@ public class MouvementRectiligne extends ComportementAcceleration{
         super(bille);  
     }
 
+    public MouvementRectiligne(Bille bille, String nom){
+        super(bille, nom);
+    }
+
     public void gestionAcceleration(Vector<Bille> billes){
         this.getBilleCourante().getAcceleration().set(Vecteur.VECTEURNUL);
     }

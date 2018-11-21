@@ -53,7 +53,14 @@ public class AnimationBilles implements Runnable {
                     billeCourante = billes.get(i);
                     billeCourante.deplacer(deltaT); // mise a jour position et vitesse de cette bille
                     billeCourante.gestionAcceleration(billes); // calcul de l'acceleration subie par cette bille
+                    /*
+                        if(billeCourrante.gestionAcceleration(billes, a[0])){
+                            setChange();
+                            notify();
+                        }
+                    */
                     billeCourante.gestionCollisionBilleBille(billes);
+                    //billeCourrante.gestionAcceleration(billes, );
                     billeCourante.collisionContour(0, 0, vueBillard.largeurBillard(), vueBillard.hauteurBillard()); // System.err.println("billes
                                                                                                                     // =
                                                                                                                     // "

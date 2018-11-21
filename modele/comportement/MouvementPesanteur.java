@@ -14,6 +14,11 @@ public class MouvementPesanteur extends ComportementAcceleration{
         this.pesanteur = pesanteur;
     }
 
+    public MouvementPesanteur(Bille bille, String nom, Vecteur pesanteur){
+        super(bille, nom);
+        this.pesanteur = pesanteur;
+    }
+
     public void gestionAcceleration(Vector<Bille> billes){
         this.getBilleCourante().getAcceleration().ajoute(
             this.pesanteur);

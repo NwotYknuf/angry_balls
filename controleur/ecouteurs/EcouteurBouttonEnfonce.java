@@ -3,7 +3,7 @@ package angry_balls.controleur.ecouteurs;
 import angry_balls.controleur.*;
 import angry_balls.mesmaths.geometrie.base.Vecteur;
 
-public class EcouteurBouttonEnfonce implements Observeur{
+public class EcouteurBouttonEnfonce implements Observeur{//renommer en EcouteurBilleAttrape
 
     private ControleurBilleLibre controleur;
 

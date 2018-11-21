@@ -12,11 +12,11 @@ public class App{
     private ControleurState controleurCourant;
     private AnimationBilles animationBilles;
     private CadreAngryBalls cadreAngryBalls;
-    private DetecteEvenement cliqueGauche;
+    private DetecteEvenement cliqueGauche; //renomer en écouteBilleAttrapée
     private DetecteEvenement arreter;
     private DetecteEvenement lancer;
     private DetecteEvenement fermer;
-    private Bille billeCourante = null;
+    private BilleDynamique billeCourante = null;
 
     private Vector<Bille> billes;
 
@@ -56,11 +56,11 @@ public class App{
         return billes;
     }
 
-    public void setBilleCourante(Bille bille){
+    public void setBilleCourante(BilleDynamique bille){
         this.billeCourante = bille;
     }
 
-    public Bille getBilleCourante(){
+    public BilleDynamique getBilleCourante(){
         return billeCourante;
     }
 

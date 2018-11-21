@@ -11,6 +11,10 @@ public class MouvementFrottementVisqueux extends ComportementAcceleration{
         super(bille);  
     }
 
+    public MouvementFrottementVisqueux(Bille bille, String nom){
+        super(bille, nom);  
+    }
+
     public void gestionAcceleration(Vector<Bille> billes){
 
         Bille billeCourrante = this.getBilleCourante();

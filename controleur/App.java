@@ -13,6 +13,7 @@ public class App{
     private AnimationBilles animationBilles;
     private CadreAngryBalls cadreAngryBalls;
     private DetecteEvenement billeAttrapee;
+    private DetecteEvenement billeRelachee;
     private DetecteEvenement arreter;
     private DetecteEvenement lancer;
     private DetecteEvenement fermer;
@@ -26,23 +27,25 @@ public class App{
         this.cadreAngryBalls = cadreAngryBalls;
         this.billes = billes;
         
-        ControleurBilleLibre bl = new ControleurBilleLibre(this);
-        ControleurBilleAttrapee ba = new ControleurBilleAttrapee(this);
+        ControleurBilleLibre ctrBilleLibre = new ControleurBilleLibre(this);
+        ControleurBilleAttrapee ctrBilleAttrapee = new ControleurBilleAttrapee(this);
 
-        bl.setSuivant(ba);
-        ba.setPrecedent(bl);
+        ctrBilleLibre.setSuivant(ctrBilleAttrapee);
+        ctrBilleAttrapee.setPrecedent(ctrBilleLibre);
 
-        controleurCourant = bl;
+        controleurCourant = ctrBilleLibre;
 
         arreter = new DetecteBoutonAWT(cadreAngryBalls.arreterBilles);
         lancer = new DetecteBoutonAWT(cadreAngryBalls.lancerBilles);
         fermer = new DetecteFermerFenetreAWT(cadreAngryBalls);
         billeAttrapee = new DetecteClicGaucheEnfonceAWT(cadreAngryBalls.billard);
+        billeRelachee = new DetecteClicGaucheRelacheAWT(cadreAngryBalls.billard);
 
         arreter.ajouterObserveur(new EcouteurArreter(animationBilles));
         lancer.ajouterObserveur(new EcouteurLancer(animationBilles));
         fermer.ajouterObserveur(new EcouteurFermer());
-        billeAttrapee.ajouterObserveur(new EcouteurBilleAttrapee(bl));
+        billeAttrapee.ajouterObserveur(new EcouteurBilleAttrapee(ctrBilleLibre));
+        billeRelachee.ajouterObserveur(new EcouteurBilleRelachee(ctrBilleAttrapee));
 
     }
 

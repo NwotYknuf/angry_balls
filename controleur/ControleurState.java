@@ -40,7 +40,7 @@ public abstract class ControleurState{
     public void etatPrecedent(){
         if(precedent != null){
             app.setControleurCourant(precedent);
-            suivant.surChangement();
+            precedent.surChangement();
         }
     }
 

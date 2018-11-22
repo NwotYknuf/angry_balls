@@ -123,7 +123,7 @@ public class NouveauMain {
         AnimationBilles animationBilles = new AnimationBilles(billes, cadre);
 
 
-        App app = new App(animationBilles, cadre, billes);
+        App app = new AppAWT(animationBilles, cadre, billes);
 
     }
 

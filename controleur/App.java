@@ -1,52 +1,41 @@
 package angry_balls.controleur;
 
-import angry_balls.modele.AnimationBilles;
-import angry_balls.vues.CadreAngryBalls;
 import angry_balls.modele.*;
-import java.util.Vector;
-import angry_balls.controleur.ecouteurs.*;
 import angry_balls.controleur.evenements.*;
+import java.util.Vector;
 
-public class App{
+public abstract class App{
 
     private ControleurState controleurCourant;
-    private AnimationBilles animationBilles;
-    private CadreAngryBalls cadreAngryBalls;
-    private DetecteEvenement billeAttrapee;
-    private DetecteEvenement billeRelachee;
-    private DetecteEvenement arreter;
-    private DetecteEvenement lancer;
-    private DetecteEvenement fermer;
+    private ControleurBilleAttrapee ctrBilleAttrapee;
+    private ControleurBilleLibre ctrBilleLibre;
     private BilleDynamique billeCourante = null;
-
     private Vector<Bille> billes;
 
-    public App(AnimationBilles animationBilles, CadreAngryBalls cadreAngryBalls, Vector<Bille> billes){
+    protected DetecteEvenement billeAttrapee;
+    protected DetecteEvenement billeRelachee;
+    protected DetecteEvenement arreter;
+    protected DetecteEvenement lancer;
+    protected DetecteEvenement fermer;
 
-        this.animationBilles = animationBilles;
-        this.cadreAngryBalls = cadreAngryBalls;
+    public App(Vector<Bille> billes){
         this.billes = billes;
-        
-        ControleurBilleLibre ctrBilleLibre = new ControleurBilleLibre(this);
-        ControleurBilleAttrapee ctrBilleAttrapee = new ControleurBilleAttrapee(this);
+
+        ctrBilleLibre = new ControleurBilleLibre(this);
+        ctrBilleAttrapee = new ControleurBilleAttrapee(this);
 
         ctrBilleLibre.setSuivant(ctrBilleAttrapee);
         ctrBilleAttrapee.setPrecedent(ctrBilleLibre);
 
         controleurCourant = ctrBilleLibre;
+    }
 
-        arreter = new DetecteBoutonAWT(cadreAngryBalls.arreterBilles);
-        lancer = new DetecteBoutonAWT(cadreAngryBalls.lancerBilles);
-        fermer = new DetecteFermerFenetreAWT(cadreAngryBalls);
-        billeAttrapee = new DetecteClicGaucheEnfonceAWT(cadreAngryBalls.billard);
-        billeRelachee = new DetecteClicGaucheRelacheAWT(cadreAngryBalls.billard);
+    public ControleurBilleAttrapee getControleurBilleAttrapee(){
+        return ctrBilleAttrapee;
+    }
 
-        arreter.ajouterObserveur(new EcouteurArreter(animationBilles));
-        lancer.ajouterObserveur(new EcouteurLancer(animationBilles));
-        fermer.ajouterObserveur(new EcouteurFermer());
-        billeAttrapee.ajouterObserveur(new EcouteurBilleAttrapee(ctrBilleLibre));
-        billeRelachee.ajouterObserveur(new EcouteurBilleRelachee(ctrBilleAttrapee));
-
+    public ControleurBilleLibre getControleurBilleLibre(){
+        return ctrBilleLibre;
     }
 
     public void setControleurCourant(ControleurState controleur){

@@ -39,8 +39,6 @@ public class App{
         fermer = new DetecteFermerFenetreAWT(cadreAngryBalls);
         billeAttrapee = new DetecteClicGaucheEnfonceAWT(cadreAngryBalls.billard);
 
-        //ajouter les observables
-
         arreter.ajouterObserveur(new EcouteurArreter(animationBilles));
         lancer.ajouterObserveur(new EcouteurLancer(animationBilles));
         fermer.ajouterObserveur(new EcouteurFermer());

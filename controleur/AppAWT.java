@@ -13,6 +13,14 @@ public class AppAWT extends App{
 
         super(billes);
 
+        ctrBilleLibre = new ControleurBilleLibre(this);
+        ctrBilleAttrapee = new ControleurBilleAttrapeeAWT(this, cadreAngryBalls.billard);
+
+        ctrBilleLibre.setSuivant(ctrBilleAttrapee);
+        ctrBilleAttrapee.setPrecedent(ctrBilleLibre);
+
+        setControleurCourant(ctrBilleLibre);
+
         arreter = new DetecteBoutonAWT(cadreAngryBalls.arreterBilles);
         lancer = new DetecteBoutonAWT(cadreAngryBalls.lancerBilles);
         fermer = new DetecteFermerFenetreAWT(cadreAngryBalls);
@@ -21,7 +29,7 @@ public class AppAWT extends App{
 
         arreter.ajouterObserveur(new EcouteurArreter(animationBilles));
         lancer.ajouterObserveur(new EcouteurLancer(animationBilles));
-        fermer.ajouterObserveur(new EcouteurFermer());
+        fermer.ajouterObserveur(new EcouteurFermer(this));
         billeAttrapee.ajouterObserveur(new EcouteurBilleAttrapee(this.getControleurBilleLibre()));
         billeRelachee.ajouterObserveur(new EcouteurBilleRelachee(this.getControleurBilleAttrapee()));
 

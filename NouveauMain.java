@@ -121,10 +121,7 @@ public class NouveauMain {
         // thread s�par�) -----------------------
 
         AnimationBilles animationBilles = new AnimationBilles(billes, cadre);
-
-
         App app = new AppAWT(animationBilles, cadre, billes);
-
     }
 
 }

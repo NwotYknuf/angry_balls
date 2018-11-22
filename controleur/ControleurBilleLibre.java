@@ -29,10 +29,11 @@ public class ControleurBilleLibre extends ControleurState {
 
             if(posBille.norme() < b.getRayon()){
                 if(b instanceof BilleDynamique){
+                    //On a cliqué sur une billedynamique
                     BilleDynamique bille = (BilleDynamique)b;
-                    //On a cliqué sur la billedynamique
                     System.out.println("Bille attrapée !");
                     app.setBilleCourante(bille);
+                    app.setPositionBilleAttrapee(pos);
                     this.etatSuivant();
                     break;
                 }                

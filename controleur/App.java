@@ -3,16 +3,18 @@ package angry_balls.controleur;
 import angry_balls.modele.*;
 import angry_balls.controleur.evenements.*;
 import java.util.Vector;
+import angry_balls.mesmaths.geometrie.base.Vecteur;
 
 public abstract class App{
 
     private ControleurState controleurCourant;
-    private ControleurBilleAttrapee ctrBilleAttrapee;
-    private ControleurBilleLibre ctrBilleLibre;
     private BilleDynamique billeCourante = null;
+    private Vecteur positionBilleAttrapee;
     private Vector<Bille> billes;
 
-    protected DetecteEvenement billeAttrapee;
+    protected ControleurBilleAttrapee ctrBilleAttrapee;
+    protected ControleurBilleLibre ctrBilleLibre;
+    protected DetectePosition billeAttrapee;
     protected DetecteEvenement billeRelachee;
     protected DetecteEvenement arreter;
     protected DetecteEvenement lancer;
@@ -20,14 +22,6 @@ public abstract class App{
 
     public App(Vector<Bille> billes){
         this.billes = billes;
-
-        ctrBilleLibre = new ControleurBilleLibre(this);
-        ctrBilleAttrapee = new ControleurBilleAttrapee(this);
-
-        ctrBilleLibre.setSuivant(ctrBilleAttrapee);
-        ctrBilleAttrapee.setPrecedent(ctrBilleLibre);
-
-        controleurCourant = ctrBilleLibre;
     }
 
     public ControleurBilleAttrapee getControleurBilleAttrapee(){
@@ -56,6 +50,18 @@ public abstract class App{
 
     public ControleurState getControleurCourant(){
         return controleurCourant;
+    }
+
+    public void arreter(){
+        System.exit(0);
+    }
+
+    public void setPositionBilleAttrapee(Vecteur pos){
+        positionBilleAttrapee = pos;
+    }
+
+    public Vecteur getPositionBilleAttrapee(){
+        return positionBilleAttrapee;  
     }
 
 }

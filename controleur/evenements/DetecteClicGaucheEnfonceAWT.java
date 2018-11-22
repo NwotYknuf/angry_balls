@@ -6,7 +6,7 @@ import java.awt.event.MouseListener;
 import angry_balls.mesmaths.geometrie.base.Vecteur;
 import angry_balls.vues.Billard;
 
-public class DetecteClicGaucheEnfonceAWT extends DetecteEvenement{
+public class DetecteClicGaucheEnfonceAWT extends DetectePosition{
 
     private class EventBoutonPresse implements MouseListener{
         
@@ -34,7 +34,7 @@ public class DetecteClicGaucheEnfonceAWT extends DetecteEvenement{
 
         public void mousePressed(MouseEvent e){
             Vecteur pos = new Vecteur(e.getPoint().x, e.getPoint().y);
-            detecteBoutton.bouttonPresse(pos);
+            detecteBoutton.evenementA_LaPosition(pos);
         }
 
         public void mouseEntered(MouseEvent e){
@@ -50,11 +50,6 @@ public class DetecteClicGaucheEnfonceAWT extends DetecteEvenement{
     public DetecteClicGaucheEnfonceAWT(Billard billard){
         billard.addMouseListener(
             new EventBoutonPresse(this));
-    }
-
-    public void bouttonPresse(Vecteur pos){
-        this.setChange();
-        this.notifierObserveurs(pos);
     }
 
 }

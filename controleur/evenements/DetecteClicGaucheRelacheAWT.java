@@ -19,7 +19,7 @@ public class DetecteClicGaucheRelacheAWT extends DetecteEvenement{
         }
 
         public void mouseReleased(MouseEvent e){
-            detecteBoutton.bouttonRelache();
+            detecteBoutton.evenementDeclenche();
         }
 
         public void mouseDragged(MouseEvent e){
@@ -47,11 +47,6 @@ public class DetecteClicGaucheRelacheAWT extends DetecteEvenement{
     public DetecteClicGaucheRelacheAWT(Billard billard){
         billard.addMouseListener(
             new EventBoutonRelache(this));
-    }
-
-    public void bouttonRelache(){
-        this.setChange();
-        this.notifierObserveurs();
     }
 
 }

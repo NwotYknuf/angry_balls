@@ -4,7 +4,6 @@ import java.awt.*;
 import java.util.Vector;
 
 import angry_balls.mesmaths.cinematique.Cinematique;
-import angry_balls.mesmaths.cinematique.Collisions;
 import angry_balls.mesmaths.geometrie.base.Geop;
 import angry_balls.mesmaths.geometrie.base.Vecteur;
 

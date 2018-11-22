@@ -3,11 +3,14 @@ import angry_balls.controleur.*;
 
 public class EcouteurFermer implements Observeur {
 
-    public EcouteurFermer() {
+    private App app;
+
+    public EcouteurFermer(App app) {
+        this.app = app;
     }
 
     public void update(Observable o, Object arg) {
-        System.exit(0);
+        app.arreter();
     }
 
 }

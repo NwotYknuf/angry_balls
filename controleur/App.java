@@ -12,8 +12,8 @@ public abstract class App{
     private BilleDynamique billeCourante = null;
     private Vecteur positionBilleAttrapee;
     private Vector<Bille> billes;
-    private GestionnaireDeSon gestionnaireDeSon;
 
+    protected GestionnaireDeSon gestionnaireDeSon;
     protected ControleurBilleAttrapee ctrBilleAttrapee;
     protected ControleurBilleLibre ctrBilleLibre;
     protected DetectePosition billeAttrapee;
@@ -22,10 +22,8 @@ public abstract class App{
     protected DetecteEvenement lancer;
     protected DetecteEvenement fermer;
 
-    public App(Vector<Bille> billes, AnimationBilles anim){
+    public App(Vector<Bille> billes){
         this.billes = billes;
-        gestionnaireDeSon = new GestionnaireDeSon();
-        anim.ajouterObserveur(gestionnaireDeSon);
     }
 
     public ControleurBilleAttrapee getControleurBilleAttrapee(){

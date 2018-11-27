@@ -2,6 +2,7 @@ package angry_balls.controleur;
 
 import angry_balls.modele.AnimationBilles;
 import angry_balls.vues.CadreAngryBalls;
+import angry_balls.vues.GestionnaireDeSonJavax;
 import angry_balls.modele.*;
 import java.util.Vector;
 import angry_balls.controleur.ecouteurs.*;
@@ -11,7 +12,7 @@ public class AppAWT extends App{
 
     public AppAWT(AnimationBilles animationBilles, CadreAngryBalls cadreAngryBalls, Vector<Bille> billes){
 
-        super(billes, animationBilles);
+        super(billes);
 
         ctrBilleLibre = new ControleurBilleLibre(this);
         ctrBilleAttrapee = new ControleurBilleAttrapeeAWT(this, cadreAngryBalls.billard);
@@ -32,5 +33,8 @@ public class AppAWT extends App{
         fermer.ajouterObserveur(new EcouteurFermer(this));
         billeAttrapee.ajouterObserveur(new EcouteurBilleAttrapee(this.getControleurBilleLibre()));
         billeRelachee.ajouterObserveur(new EcouteurBilleRelachee(this.getControleurBilleAttrapee()));
+
+        gestionnaireDeSon = new GestionnaireDeSonJavax(cadreAngryBalls);
+        animationBilles.ajouterObserveur(gestionnaireDeSon);
     }
 }

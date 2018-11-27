@@ -18,7 +18,7 @@ public class Bloque extends ComportementCollision{
     public boolean collisionContour(double abscisseCoinHautGauche, double ordonneeCoinHautGauche, double largeur, double hauteur){
 
         Bille billeCourante = this.getBilleCourante();
-        Vecteur vitesse = billeCourante.getVitesse();
+        Vecteur vitesse = new Vecteur(billeCourante.getVitesse());
         boolean collision = false;
 
         Collisions.collisionBilleContourAvecArretHorizontal(
@@ -49,7 +49,7 @@ public class Bloque extends ComportementCollision{
     public boolean collisionContour(double abscisseCoinHautGauche, double ordonneeCoinHautGauche, double largeur, double hauteur, InfoCollision[] info){
 
         Bille billeCourante = this.getBilleCourante();
-        Vecteur vitesse = billeCourante.getVitesse();
+        Vecteur vitesse = new Vecteur(billeCourante.getVitesse());
         boolean collision = false;
         info[0] = new InfoCollision("BilleMur", 0.0, 0.0);
 

@@ -25,6 +25,10 @@ public abstract class ControleurBilleAttrapee extends ControleurState {
 
     public void nouvellePositionSouris(Vecteur pos){
         
+        if(this.app.getControleurCourant() != this){
+            return;
+        }
+
         Vecteur diff = new Vecteur(pos.x, pos.y);
         diff.retire(positionPrecedante);
         diff.multiplie(FORCE_SOURIS);

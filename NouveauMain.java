@@ -102,10 +102,10 @@ public class NouveauMain {
         billeNoire.ajouterComportementCollision(new Bloque(billeNoire));
 
         billes.add(billeRouge);
-        /*billes.add(billeJaune);
+        billes.add(billeJaune);
         billes.add(billeVerte);
         billes.add(billeBleue);
-        billes.add(billeNoire);*/
+        billes.add(billeNoire);
 
         /*
         billes.add(new BilleMvtRURebond(p0, rayon, v0, Color.red));

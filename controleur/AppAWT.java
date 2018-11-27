@@ -11,7 +11,7 @@ public class AppAWT extends App{
 
     public AppAWT(AnimationBilles animationBilles, CadreAngryBalls cadreAngryBalls, Vector<Bille> billes){
 
-        super(billes);
+        super(billes, animationBilles);
 
         ctrBilleLibre = new ControleurBilleLibre(this);
         ctrBilleAttrapee = new ControleurBilleAttrapeeAWT(this, cadreAngryBalls.billard);
@@ -32,7 +32,5 @@ public class AppAWT extends App{
         fermer.ajouterObserveur(new EcouteurFermer(this));
         billeAttrapee.ajouterObserveur(new EcouteurBilleAttrapee(this.getControleurBilleLibre()));
         billeRelachee.ajouterObserveur(new EcouteurBilleRelachee(this.getControleurBilleAttrapee()));
-
     }
-
 }

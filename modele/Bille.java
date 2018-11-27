@@ -136,6 +136,10 @@ public abstract class Bille {
         return OutilsBille.gestionCollisionBilleBille(this, billes);
     }
 
+    public boolean gestionCollisionBilleBille(Vector<Bille> billes, double[] intensite, double[] pos_x_collision) {
+        return OutilsBille.gestionCollisionBilleBille(this, billes, intensite, pos_x_collision);
+    }
+
     /**
      * gestion de l'�ventuelle collision de la bille (this) avec le contour
      * rectangulaire de l'�cran d�fini par (abscisseCoinHautGauche,

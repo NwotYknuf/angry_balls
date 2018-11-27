@@ -1,6 +1,7 @@
 package angry_balls.controleur;
 
 import angry_balls.modele.*;
+import angry_balls.vues.GestionnaireDeSon;
 import angry_balls.controleur.evenements.*;
 import java.util.Vector;
 import angry_balls.mesmaths.geometrie.base.Vecteur;
@@ -11,6 +12,7 @@ public abstract class App{
     private BilleDynamique billeCourante = null;
     private Vecteur positionBilleAttrapee;
     private Vector<Bille> billes;
+    private GestionnaireDeSon gestionnaireDeSon;
 
     protected ControleurBilleAttrapee ctrBilleAttrapee;
     protected ControleurBilleLibre ctrBilleLibre;
@@ -20,8 +22,10 @@ public abstract class App{
     protected DetecteEvenement lancer;
     protected DetecteEvenement fermer;
 
-    public App(Vector<Bille> billes){
+    public App(Vector<Bille> billes, AnimationBilles anim){
         this.billes = billes;
+        gestionnaireDeSon = new GestionnaireDeSon();
+        anim.ajouterObserveur(gestionnaireDeSon);
     }
 
     public ControleurBilleAttrapee getControleurBilleAttrapee(){

@@ -2,6 +2,7 @@ package angry_balls.modele;
 
 import java.util.Vector;
 
+import angry_balls.controleur.Observable;
 import angry_balls.modele.Bille;
 import angry_balls.vues.VueBillard;
 /**
@@ -12,7 +13,7 @@ import angry_balls.vues.VueBillard;
  * 
  * ICI : IL N'Y A RIEN A CHANGER
  */
-public class AnimationBilles implements Runnable {
+public class AnimationBilles extends Observable implements Runnable {
 
     Vector<Bille> billes; // la liste de toutes les billes en mouvement
     VueBillard vueBillard; // la vue responsable du dessin des billes
@@ -53,13 +54,15 @@ public class AnimationBilles implements Runnable {
                     billeCourante = billes.get(i);
                     billeCourante.deplacer(deltaT); // mise a jour position et vitesse de cette bille
                     billeCourante.gestionAcceleration(billes); // calcul de l'acceleration subie par cette bille
-                    /*
-                        if(billeCourrante.gestionAcceleration(billes, a[0])){
-                            setChange();
-                            notify();
-                        }
-                    */
-                    billeCourante.gestionCollisionBilleBille(billes);
+
+                    double[] intensite = new double[]{ 0 };
+                    double[] pos_x_choc = new double[]{ 0 };
+
+                    if(billeCourante.gestionCollisionBilleBille(billes, intensite, pos_x_choc)){
+                        setChange();
+                        double [] param_choc = new double[]{ intensite[0], pos_x_choc[0]};
+                        notifierObserveurs(param_choc);
+                    }
                     //billeCourrante.gestionAcceleration(billes, );
                     billeCourante.collisionContour(0, 0, vueBillard.largeurBillard(), vueBillard.hauteurBillard()); // System.err.println("billes
                                                                                                                     // =

@@ -81,6 +81,28 @@ public class OutilsBille {
         return false;
     }
 
+    public static boolean gestionCollisionBilleBille(Bille cetteBille, Vector<Bille> billes, double[] intensite, double[] pos_x_collision){
+        Vector<Bille> autresBilles = OutilsBille.autresBilles(cetteBille, billes);
+
+        // --- on cherche � pr�sent la 1�re des autres billes avec laquelle cetteBille
+        // est en collision ---------------------
+        // -------------- on suppose qu'il ne peut y avoir de collision qui implique
+        // plus de deux billes � la fois ---------------
+
+        Bille billeCourante;
+
+        int i;
+
+        for (i = 0; i < autresBilles.size(); ++i) {
+            billeCourante = autresBilles.get(i);
+            if (Collisions.CollisionBilleBille(cetteBille.getPosition(), cetteBille.getRayon(), cetteBille.getVitesse(),
+                    cetteBille.masse(), billeCourante.getPosition(), billeCourante.getRayon(),
+                    billeCourante.getVitesse(), billeCourante.masse(), intensite, pos_x_collision))
+                return true;
+        }
+        return false;
+    }
+
     /**
      * @param cetteBille : une bille particuli�re
      * @param billes     : une liste de billes, cette liste peut contenir cettebille

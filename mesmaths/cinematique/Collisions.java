@@ -713,6 +713,77 @@ else
 } // collisionBilleBille
 
 
+private static double max(double a, double b){
+   return a > b ? a : b;
+}
+
+/*
+ * 
+ *
+ *
+ */
+public static boolean CollisionBilleBille( final Vecteur G1, double rayon1, Vecteur v1, double m1, 
+                                           final Vecteur G2, double rayon2, Vecteur v2, double m2, double[] intensite, double[] pos_x_collision){
+   
+   Vecteur G1G2 = Vecteur.difference(G2, G1);
+
+   double nG1G2_2 = G1G2.normeCarree();
+   
+   double r = rayon1+rayon2;
+   double r2 = r*r;
+   
+   if ( nG1G2_2 >= r2 )  
+            return false;   // il n'y a pas de collision entre les 2 billes car elles sont trop �loign�es l'une de l'autre
+   
+   double  nG1G2 = Math.sqrt(nG1G2_2);
+   
+   Vecteur N = G1G2.produit(1 / nG1G2);    // vecteur unitaire sur le segment [G1 G2]
+   
+   double v1N, v2N;
+   
+   v1N = v1.produitScalaire(N);
+   v2N = v2.produitScalaire(N);
+   
+   double a = v1N - v2N;
+      
+   if (a <= 0) 
+            return false;       // les billes s�loignent l'une de l'autre, la collision a donc d�j� �t� trait�e
+   
+   Vecteur decalage = new Vecteur(G2.x, G2.y);
+   decalage.retire(G1);
+   //G2 - G1
+   decalage.multiplie(1 - (max(rayon1,rayon2)/(rayon1 + rayon2)));
+   //petit barycentre entre les deux billes pour connaitre la position de l'impact
+   Vecteur pos = new Vecteur(G1.x, G1.y);
+   pos.somme(decalage);
+
+   //on met les paramètres dans les tableaux :
+   intensite[0] = a;
+   pos_x_collision[0] = pos.x;
+   
+   // � pr�sent a > 0. a repr�sente l'intensit� du choc entre les 2 billes !!!!
+   
+   // calculons les nouveaux vecteurs vitesse imm�diatement apr�s le choc
+   
+   double masseTotale = m1+m2;
+   double alfa = (m1-m2)/masseTotale;
+   double deuxSurM = 2/masseTotale;
+   
+   double v1Np =          alfa * v1N + m2 * deuxSurM * v2N;
+   double v2Np = m1 * deuxSurM * v1N -          alfa * v2N;
+   
+   Vecteur U = N.rotationQuartDeTour();
+   
+   double v1T = v1.produitScalaire(U);
+   double v2T = v2.produitScalaire(U);
+   
+   v1.set(Vecteur.combinaisonLineaire(v1Np,  N , v1T, U));
+   v2.set(Vecteur.combinaisonLineaire(v2Np,  N , v2T, U));
+                                                                                      
+   return true;
+}  
+
+
 /**
  * g�re la collision dynamique ou statique des 2 billes d�finies respectivement par 
  * ( position1, rayon1, vitesse1, acc�l�ration1, masse1 ) et par ( position2, rayon2, vitesse2, acc�l�ration1, masse2)

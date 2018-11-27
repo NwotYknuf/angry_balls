@@ -4,6 +4,7 @@ import java.util.Vector;
 
 import angry_balls.controleur.Observable;
 import angry_balls.modele.Bille;
+import angry_balls.vues.InfoCollision;
 import angry_balls.vues.VueBillard;
 /**
  * responsable de l'animation des billes, c-a-d responsable du mouvement de la
@@ -60,11 +61,17 @@ public class AnimationBilles extends Observable implements Runnable {
 
                     if(billeCourante.gestionCollisionBilleBille(billes, intensite, pos_x_choc)){
                         setChange();
-                        double [] param_choc = new double[]{ intensite[0], pos_x_choc[0]};
-                        notifierObserveurs(param_choc);
+                        InfoCollision info = new InfoCollision("BilleBille", intensite[0], pos_x_choc[0]);
+                        notifierObserveurs(info);
                     }
                     //billeCourrante.gestionAcceleration(billes, );
-                    billeCourante.collisionContour(0, 0, vueBillard.largeurBillard(), vueBillard.hauteurBillard()); // System.err.println("billes
+                    
+                    InfoCollision[] info = new InfoCollision[1];
+
+                    if(billeCourante.collisionContour(0, 0, vueBillard.largeurBillard(), vueBillard.hauteurBillard(), info)){
+                        setChange();
+                        notifierObserveurs(info[0]);
+                    } // System.err.println("billes
                                                                                                                     // =
                                                                                                                     // "
                                                                                                                     // +

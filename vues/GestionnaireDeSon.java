@@ -9,9 +9,9 @@ public class GestionnaireDeSon implements Observeur{
     }
 
     public void update(Observable o, Object arg){
-        double[] param_choc = (double[])(arg);
+        InfoCollision param_choc = (InfoCollision)(arg);
 
-        System.out.println("Choc : " + param_choc[0] + ", " + param_choc[1]);
+        System.out.println(param_choc);
     }
 
 }

@@ -4,6 +4,7 @@ import java.util.Vector;
 import angry_balls.mesmaths.geometrie.base.Vecteur;
 import java.awt.Color;
 import angry_balls.modele.comportement.*;
+import angry_balls.vues.InfoCollision;
 
 
 public class BilleDynamique extends Bille {
@@ -38,6 +39,21 @@ public class BilleDynamique extends Bille {
         for (ComportementCollision comportement : comportementsCollision) {
             comportement.collisionContour(abscisseCoinHautGauche, ordonneeCoinHautGauche, largeur, hauteur);
         }
+    }
+
+    public boolean collisionContour(double abscisseCoinHautGauche, double ordonneeCoinHautGauche, double largeur, double hauteur, InfoCollision[] info){
+        
+        boolean collision = false;
+
+        for (ComportementCollision comportement : comportementsCollision) {
+
+            if(comportement.collisionContour(abscisseCoinHautGauche, ordonneeCoinHautGauche, largeur, hauteur, info)){
+                collision = true;
+            }
+        }
+
+        return collision;
+
     }
 
     public void gestionAcceleration(Vector<Bille> billes){

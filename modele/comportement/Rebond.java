@@ -1,7 +1,9 @@
 package angry_balls.modele.comportement;
 
 import angry_balls.modele.*;
+import angry_balls.vues.InfoCollision;
 import angry_balls.mesmaths.cinematique.Collisions;
+import angry_balls.mesmaths.geometrie.base.Vecteur;
 
 public class Rebond extends ComportementCollision{
 
@@ -13,15 +15,56 @@ public class Rebond extends ComportementCollision{
         super(bille, nom);
     }
 
-    public void collisionContour(double abscisseCoinHautGauche, double ordonneeCoinHautGauche, double largeur, double hauteur){
+    public boolean collisionContour(double abscisseCoinHautGauche, double ordonneeCoinHautGauche, double largeur, double hauteur){
 
         Bille billeCourante = this.getBilleCourante();
+        Vecteur vitesse = billeCourante.getVitesse();
+        InfoCollision info = new InfoCollision("BilleMur", 0.0, 0.0);
 
         Collisions.collisionBilleContourAvecRebond(
             billeCourante.getPosition(), 
             billeCourante.getRayon(), 
             billeCourante.getVitesse(),
             abscisseCoinHautGauche, ordonneeCoinHautGauche, largeur, hauteur);
+
+        if(!vitesse.equals(billeCourante.getVitesse())){
+            return true;
+        }
+
+        return false;
+
+    }
+
+    public boolean collisionContour(double abscisseCoinHautGauche, double ordonneeCoinHautGauche, double largeur, double hauteur, InfoCollision[] info){
+
+        Bille billeCourante = this.getBilleCourante();
+        Vecteur vitesse = billeCourante.getVitesse();
+        info[0] = new InfoCollision("BilleMur", 0.0, 0.0);
+
+        Collisions.collisionBilleContourAvecRebond(
+            billeCourante.getPosition(), 
+            billeCourante.getRayon(), 
+            billeCourante.getVitesse(),
+            abscisseCoinHautGauche, ordonneeCoinHautGauche, largeur, hauteur);
+
+        if(!vitesse.equals(billeCourante.getVitesse())){
+            //collision
+
+            info[0].pos_x = billeCourante.getPosition().x;
+
+            if(vitesse.x == billeCourante.getVitesse().x){
+                //On a tapé le mur du haut ou du bas
+                info[0].intensite = Math.abs(vitesse.y);
+            }
+            else{
+                info[0].intensite = Math.abs(vitesse.x);
+            }           
+
+            return true;
+        }
+
+        return false;
+
     }
 
 }

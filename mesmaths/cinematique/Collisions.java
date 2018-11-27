@@ -459,7 +459,7 @@ if (x+rayon > xMax)
     t[0] = 0;
     t[1] = xMax-rayon-Collisions.EPSILON;
     }
-else
+else{
     if (x-rayon < xMin)
         {
         t[0] = 0;
@@ -469,7 +469,7 @@ else
         {
         t[0] = v; t[1] = x; 
         }
-
+}
 return t;
 }
 

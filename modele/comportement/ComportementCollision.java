@@ -1,6 +1,7 @@
 package angry_balls.modele.comportement;
 
 import angry_balls.modele.*;
+import angry_balls.vues.InfoCollision;
 public abstract class ComportementCollision extends Comportement{
 
     private Bille billeCourante;
@@ -18,6 +19,9 @@ public abstract class ComportementCollision extends Comportement{
         return billeCourante;
     }
 
-    public abstract void collisionContour(double abscisseCoinHautGauche, double ordonneeCoinHautGauche, double largeur,double hauteur);
+    public abstract boolean collisionContour(double abscisseCoinHautGauche, double ordonneeCoinHautGauche, double largeur,double hauteur);
+
+    public abstract boolean collisionContour(double abscisseCoinHautGauche, double ordonneeCoinHautGauche, double largeur,double hauteur, InfoCollision[] info);
+
 
 }

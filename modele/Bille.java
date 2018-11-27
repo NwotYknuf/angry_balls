@@ -6,6 +6,7 @@ import java.util.Vector;
 import angry_balls.mesmaths.cinematique.Cinematique;
 import angry_balls.mesmaths.geometrie.base.Geop;
 import angry_balls.mesmaths.geometrie.base.Vecteur;
+import angry_balls.vues.InfoCollision;;
 
 /**
  * Cas g�n�ral d'une bille de billard
@@ -152,6 +153,9 @@ public abstract class Bille {
      */
     public abstract void collisionContour(double abscisseCoinHautGauche, double ordonneeCoinHautGauche, double largeur,
             double hauteur);
+
+    public abstract boolean collisionContour(double abscisseCoinHautGauche, double ordonneeCoinHautGauche, double largeur, double hauteur, InfoCollision[] info);
+        
 
     public void dessine(Graphics g) {
         int width, height;

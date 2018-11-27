@@ -278,4 +278,24 @@ public Vecteur produitComplexe(Vecteur v)
 return new Vecteur(x*v.x - y*v.y,x*v.y + y*v.x); 
 }
 
+
+@Override
+public boolean equals(Object o){
+
+    if(o == this){
+        return true;
+    }
+
+    if(!(o instanceof Vecteur)){
+        return false;
+    }
+
+    Vecteur v = (Vecteur)o;
+
+    return v.x == this.x && v.y == this.y;
+
+}
+
+
+
 }

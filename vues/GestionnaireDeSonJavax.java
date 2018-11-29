@@ -5,19 +5,15 @@ import java.io.*;
 
 public class GestionnaireDeSonJavax extends GestionnaireDeSon{
 
-    private HashMap<String, File> sons;
+    private HashMap<String, String> sons;
 
     public GestionnaireDeSonJavax(VueBillard billard){
         super(billard);
 
-        sons = new HashMap<String,File>();
+        sons = new HashMap<String,String>();
 
-        ClassLoader classLoader = getClass().getClassLoader();
-        File billeBille = new File(classLoader.getResource("./billebille.wav").getPath());
-        File billeMur = new File(classLoader.getResource("./billemur.wav").getPath());
-
-        sons.put("BilleBille", billeBille);
-        sons.put("BilleMur", billeMur);
+        sons.put("BilleBille", "billeBille.wav");
+        sons.put("BilleMur", "billeMur.wav");
     }
 
     @Override

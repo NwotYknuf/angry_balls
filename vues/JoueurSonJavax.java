@@ -5,9 +5,9 @@ import javax.sound.sampled.*;
 
 public class JoueurSonJavax extends JoueurSon{
 
-    private File file;
+    private String file;
 
-    public JoueurSonJavax(File file, double intensite, double stereo){
+    public JoueurSonJavax(String file, double intensite, double stereo){
         super(intensite, stereo);
         this.file = file;
     }
@@ -15,7 +15,7 @@ public class JoueurSonJavax extends JoueurSon{
     public void jouerSon(double intensite, double stereo){
 
         try {
-            AudioInputStream audioIn = AudioSystem.getAudioInputStream(file);
+            AudioInputStream audioIn = AudioSystem.getAudioInputStream(this.getClass().getClassLoader().getResource(file));
             Clip clip = AudioSystem.getClip();
             clip.open(audioIn);
             FloatControl pan = (FloatControl)(clip.getControl(FloatControl.Type.PAN));
